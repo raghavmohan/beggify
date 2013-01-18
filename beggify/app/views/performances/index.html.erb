@@ -1,0 +1,29 @@
+<h1>Listing performances</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Performed at</th>
+    <th>Performed latitude</th>
+    <th>Performed longitude</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @performances.each do |performance| %>
+  <tr>
+    <td><%= performance.name %></td>
+    <td><%= performance.performed_at %></td>
+    <td><%= performance.performed_latitude %></td>
+    <td><%= performance.performed_longitude %></td>
+    <td><%= link_to 'Show', performance %></td>
+    <td><%= link_to 'Edit', edit_performance_path(performance) %></td>
+    <td><%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Performance', new_performance_path %>

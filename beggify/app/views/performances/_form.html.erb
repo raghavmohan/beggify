@@ -1,0 +1,33 @@
+<%= form_for(@performance) do |f| %>
+  <% if @performance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@performance.errors.count, "error") %> prohibited this performance from being saved:</h2>
+
+      <ul>
+      <% @performance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :performed_at %><br />
+    <%= f.datetime_select :performed_at %>
+  </div>
+  <div class="field">
+    <%= f.label :performed_latitude %><br />
+    <%= f.text_field :performed_latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :performed_longitude %><br />
+    <%= f.text_field :performed_longitude %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

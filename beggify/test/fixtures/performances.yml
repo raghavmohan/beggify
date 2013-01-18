@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  performed_at: 2013-01-18 13:50:31
+  performed_latitude: 9.99
+  performed_longitude: 9.99
+
+two:
+  name: MyString
+  performed_at: 2013-01-18 13:50:31
+  performed_latitude: 9.99
+  performed_longitude: 9.99

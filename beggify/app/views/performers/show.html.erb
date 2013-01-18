@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @performer.name %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @performer.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @performer.last_name %>
+</p>
+
+<p>
+  <b>Last latitude:</b>
+  <%= @performer.last_latitude %>
+</p>
+
+<p>
+  <b>Last longitude:</b>
+  <%= @performer.last_longitude %>
+</p>
+
+<p>
+  <b>Money ytd:</b>
+  <%= @performer.money_ytd %>
+</p>
+
+<p>
+  <b>Street name:</b>
+  <%= @performer.street_name %>
+</p>
+
+<p>
+  <b>Picture url:</b>
+  <%= @performer.picture_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_performer_path(@performer) %> |
+<%= link_to 'Back', performers_path %>

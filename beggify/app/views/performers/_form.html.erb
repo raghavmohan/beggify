@@ -1,0 +1,49 @@
+<%= form_for(@performer) do |f| %>
+  <% if @performer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@performer.errors.count, "error") %> prohibited this performer from being saved:</h2>
+
+      <ul>
+      <% @performer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_latitude %><br />
+    <%= f.text_field :last_latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :last_longitude %><br />
+    <%= f.text_field :last_longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :money_ytd %><br />
+    <%= f.text_field :money_ytd %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %><br />
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_url %><br />
+    <%= f.text_field :picture_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
