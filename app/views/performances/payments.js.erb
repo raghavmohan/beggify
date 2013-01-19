@@ -1,0 +1,5 @@
+<% unless @payments.empty? %>
+  <% @payments.each do |payment| %>
+    alert('payment: <%= payment.amount %>')
+  <% end %>
+<% end %>

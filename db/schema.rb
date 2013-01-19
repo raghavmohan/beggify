@@ -15,18 +15,20 @@ ActiveRecord::Schema.define(:version => 20130119201440) do
 
   create_table "payments", :force => true do |t|
     t.float    "amount"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "performance_id"
   end
 
   create_table "performances", :force => true do |t|
     t.string   "name"
-    t.datetime "performed_at"
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "performer_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string   "address"
   end
 

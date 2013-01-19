@@ -19,6 +19,7 @@ class PerformersController < ApplicationController
   # GET /performers/1.json
   def show
     @performer = Performer.find(params[:id])
+    @payment = Payment.new
 
     respond_to do |format|
       format.html # show.html.erb

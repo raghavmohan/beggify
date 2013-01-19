@@ -1,9 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-	
-	private
-
 	def current_performer
   		@current_performer ||= Performer.find(session[:performer_id]) if session[:performer_id]
 	end

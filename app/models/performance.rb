@@ -1,5 +1,5 @@
 class Performance < ActiveRecord::Base
-  attr_accessible :name, :performed_at, :latitude, :longitude
+  attr_accessible :name, :start_time, :end_time, :latitude, :longitude
 
   belongs_to :performer
 

@@ -6,20 +6,34 @@
 </p>
 
 <p>
-  <b>Performed at:</b>
-  <%= @performance.performed_at %>
+  <b>Started at:</b>
+  <%= @performance.start_time %>
 </p>
 
 <p>
   <b>Performed latitude:</b>
-  <%= @performance.performed_latitude %>
+  <%= @performance.latitude %>
 </p>
 
 <p>
   <b>Performed longitude:</b>
-  <%= @performance.performed_longitude %>
+  <%= @performance.longitude %>
+</p>
+<% total = 0 %>
+<% @performance.payments do |payment| %>
+  <% total += payment.amount %>
+<% end %>
+
+<div id="performer" data-id="<%= @performer.id %>"> </div>
+<div id="performance" data-id="<%= @performance.id %>"> </div>
+<p>
+  <b>Tip Total:</b>
+  <% if @performance.payments.empty? %>
+    <% time = 0 %>
+  <% else %>
+    <% time = @performance.payments.first.created_at.to_i - 1 %>
+  <% end %>
+  <%= "<span id='tip_total' data-time='#{time}'>#{total}</span>".html_safe %>
 </p>
 
-
-<%= link_to 'Edit', edit_performance_path(@performance) %> |
-<%= link_to 'Back', performances_path %>
+<%= link_to 'Back', performer_performances_path %>

@@ -1,0 +1,7 @@
+<% unless @payments.empty? %>
+  <% @payments.each do |payment| %>
+    $("#tip_total").attr('data-time','<%= payment.created_at.to_i %>')
+    $("#tip_total").text(parseInt($("#tip_total").text()) + <%= payment.amount %>)
+    console.log("<%= payment.created_at %>, <%= payment.amount %>")
+  <% end %>
+<% end %>
