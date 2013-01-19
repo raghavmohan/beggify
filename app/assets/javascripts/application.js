@@ -15,20 +15,26 @@
 //= require_tree .
 
 
-var x=document.getElementById("demo");
 function getLocation()
 {
   if (navigator.geolocation)
     {
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(getPerformers);
     }
   else{x.innerHTML="Geolocation is not supported by this browser.";}
 }
+getLocation();
 
-window.onLoad = (function() {getLocation();});
-
-function showPosition(position)
+function getPerformers(position)
 {
-  alert("Latitude: ");	
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	
+	$.get("nearby", { latitude: latitude, longitude: longitude },
+  	function(data){
+  		console.log(data);
+  	}
+	);  
+	
 }
 
