@@ -21,12 +21,13 @@ ActiveRecord::Schema.define(:version => 20130119070556) do
 
   create_table "performances", :force => true do |t|
     t.string   "name"
-    t.datetime "performed_at"
     t.decimal  "performed_latitude"
     t.decimal  "performed_longitude"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "performer_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "performers", :force => true do |t|
