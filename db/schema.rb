@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119050024) do
+ActiveRecord::Schema.define(:version => 20130119060639) do
 
   create_table "payments", :force => true do |t|
     t.float    "amount"
@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(:version => 20130119050024) do
 
   create_table "performers", :force => true do |t|
     t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
     t.decimal  "money_ytd"
     t.string   "street_name"
     t.string   "picture_url"
