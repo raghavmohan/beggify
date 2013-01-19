@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118200526) do
+ActiveRecord::Schema.define(:version => 20130119031459) do
 
   create_table "performances", :force => true do |t|
     t.string   "name"
@@ -32,8 +32,11 @@ ActiveRecord::Schema.define(:version => 20130118200526) do
     t.decimal  "money_ytd"
     t.string   "street_name"
     t.string   "picture_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end
