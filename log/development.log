@@ -312,3 +312,20 @@ Served asset /performers.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-18 20:45:30 -0600
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePerformers (20130118193100)
+Migrating to CreatePerformances (20130118195031)
+Migrating to AddPerformerIdToPerformances (20130118200526)
+Migrating to AddLatitudeAndLongitudeToPerformer (20130119025914)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "performers" ADD "latitude" float
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "performers" ADD "longitude" float[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130119025914')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("performances")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("performers")[0m
