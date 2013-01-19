@@ -23,8 +23,18 @@
 <%= @performer.picture_url %>
 </p>
 
+<%= form_for [@performer, @payment] do |f| %>
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
 
-<%= link_to 'Pay $1', "https://venmo.com/#{@performer.venmo_id}?txn=Pay&amount=1&note=for%20a%20great%20street%20performance" %> |
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Performances', performer_performances_path(@performer) %> |
 <%= link_to 'Edit', edit_performer_path(@performer) %> |
 <%= link_to 'Back', performers_path %>
 

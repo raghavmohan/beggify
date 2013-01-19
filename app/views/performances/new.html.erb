@@ -2,24 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', performances_path %>
-
-<script>
-function getLocation()
-{
-  if (navigator.geolocation)
-    {
-      navigator.geolocation.getCurrentPosition(setLocation);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-}
-getLocation();
-
-function setLocation(position)
-{
-	var latitude = position.coords.latitude;
-	var longitude = position.coords.longitude;
-	$("#performance_performed_latitude").val(latitude);	
-	$("#performance_performed_longitude").val(longitude);	
-}
-</script>
+<%= link_to 'Back', performer_performances_path(@performer) %>

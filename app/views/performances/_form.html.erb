@@ -1,4 +1,4 @@
-<%= form_for(@performance) do |f| %>
+<%= form_for [:performer, @performance] do |f| %>
   <% if @performance.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@performance.errors.count, "error") %> prohibited this performance from being saved:</h2>
@@ -16,16 +16,16 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :performed_at %><br />
-    <%= f.datetime_select :performed_at %>
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
   </div>
   <div class="field">
-    <% f.label :performed_latitude %><!--<br />-->
-    <%= f.hidden_field :performed_latitude %>
+    <% f.label :latitude %><!--<br />-->
+    <%= f.hidden_field :latitude %>
   </div>
   <div class="field">
-    <% f.label :performed_longitude %><!--<br />-->
-    <%= f.hidden_field :performed_longitude %>
+    <% f.label :longitude %><!--<br />-->
+    <%= f.hidden_field :longitude %>
   </div>
   <div class="actions">
     <%= f.submit %>

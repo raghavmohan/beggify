@@ -2,7 +2,8 @@ class PerformancesController < ApplicationController
 	# GET /performances
   # GET /performances.json
   def index
-    @performances = Performance.all
+    @performer = Performer.find(params[:performer_id])
+    @performances = @performer.performances
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,13 +11,16 @@ class PerformancesController < ApplicationController
     end
   end
 
+  # GET /performances/pay.js
+  def pay
+    @payments = Payment.where("performance_id = ? and created_at > ?", params[:performance_id], Time.at(params[:after].to_i + 1))
+  end
+
   # GET /performances/1
   # GET /performances/1.json
   def show
+    @performer = Performer.find(params[:performer_id])
     @performance = Performance.find(params[:id])
-
-		current_performer.current_performance = params[:id]
-		current_performer.save
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +31,8 @@ class PerformancesController < ApplicationController
   # GET /performances/new
   # GET /performances/new.json
   def new
-    @performance = Performance.new
+    @performer = Performer.find(params[:performer_id])
+    @performance = @performer.performances.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,11 +48,17 @@ class PerformancesController < ApplicationController
   # POST /performances
   # POST /performances.json
   def create
-    @performance = Performance.new(params[:performance])
-		@performance.performer = current_performer
+    @performer = Performer.find(params[:performer_id])
+    @performance = @performer.performances.build(params[:performance])
+
+    if current_performer
+      current_performer.current_performance = @performance
+      current_performer.save
+    end
+
     respond_to do |format|
       if @performance.save
-        format.html { redirect_to @performance, notice: 'Performance was successfully created.' }
+        format.html { redirect_to performer_performances_path, notice: 'Performance was successfully created.' }
         format.json { render json: @performance, status: :created, location: @performance }
       else
         format.html { render action: "new" }
@@ -63,7 +74,7 @@ class PerformancesController < ApplicationController
 
     respond_to do |format|
       if @performance.update_attributes(params[:performance])
-        format.html { redirect_to @performance, notice: 'Performance was successfully updated.' }
+        format.html { redirect_to performer_performances_path, notice: 'Performance was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,7 +90,7 @@ class PerformancesController < ApplicationController
     @performance.destroy
 
     respond_to do |format|
-      format.html { redirect_to performances_url }
+      format.html { redirect_to performer_performances_url }
       format.json { head :no_content }
     end
   end

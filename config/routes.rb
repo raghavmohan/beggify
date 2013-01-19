@@ -1,8 +1,11 @@
 Beggify::Application.routes.draw do
   root to: 'performers#index'
 
-  resources :performances
-  resources :performers
+  resources :performers do
+    match 'performances/pay.js', to: 'performances#pay'
+    resources :performances
+    resources :payments
+  end
 
 	match 'auth/:provider/callback', to: 'sessions#create'
 	match 'auth/failure', to: redirect('/')
