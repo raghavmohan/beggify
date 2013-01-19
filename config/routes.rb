@@ -1,7 +1,16 @@
 Beggify::Application.routes.draw do
-  resources :performances
+	root :to => "home#index"  
+
+	resources :performances
 
   resources :performers
+
+	
+
+	match 'auth/:provider/callback', to: 'sessions#create'
+	match 'auth/failure', to: redirect('/')
+	match 'signout', to: 'sessions#destroy', as: 'signout'
+	match 'home/performer', to: 'home#performer', as: 'performer_home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
