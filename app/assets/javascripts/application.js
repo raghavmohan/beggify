@@ -15,26 +15,3 @@
 //= require_tree .
 
 
-function getLocation()
-{
-  if (navigator.geolocation)
-    {
-      navigator.geolocation.getCurrentPosition(getPerformers);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-}
-getLocation();
-
-function getPerformers(position)
-{
-	var latitude = position.coords.latitude;
-	var longitude = position.coords.longitude;
-	
-	$.get("nearby", { latitude: latitude, longitude: longitude },
-  	function(data){
-  		console.log(data);
-  	}
-	);  
-	
-}
-

@@ -1,5 +1,5 @@
 class PerformancesController < ApplicationController
-  # GET /performances
+	# GET /performances
   # GET /performances.json
   def index
     @performances = Performance.all
