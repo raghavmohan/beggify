@@ -1,8 +1,11 @@
 <%= form_tag performers_path, :method => :get do %>
   <p>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search Near", :name => nil %>
-</p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+
+
 <h1>Listing performers</h1>
 
 <table>
@@ -11,8 +14,6 @@
     <th>Name</th>
     <th>First name</th>
     <th>Last name</th>
-    <th>Last latitude</th>
-    <th>Last longitude</th>
     <th>Money ytd</th>
     <th>Street name</th>
     <th>Picture url</th>
@@ -27,8 +28,6 @@
     <td><%= performer.name %></td>
     <td><%= performer.first_name %></td>
     <td><%= performer.last_name %></td>
-    <td><%= performer.last_latitude %></td>
-    <td><%= performer.last_longitude %></td>
     <td><%= performer.money_ytd %></td>
     <td><%= performer.street_name %></td>
     <td><%= performer.picture_url %></td>
