@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <iframe width="80%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=<%= @performer.latitude %>,<%= @performer.longitude %>&amp;aq=0&amp;oq=little&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
 <h3>Nearby locations</h3>
 <ul>
@@ -6,56 +5,54 @@
     <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
 <% end %>
 </ul>
-=======
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Venmo:</b>
-  <%= @performer.venmo_id %>
+<b>Venmo:</b>
+<%= @performer.venmo_id %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%= @performer.name %>
+<b>Name:</b>
+<%= @performer.name %>
 </p>
 
 <p>
-  <b>First name:</b>
-  <%= @performer.first_name %>
+<b>First name:</b>
+<%= @performer.first_name %>
 </p>
 
 <p>
-  <b>Last name:</b>
-  <%= @performer.last_name %>
+<b>Last name:</b>
+<%= @performer.last_name %>
 </p>
 
 <p>
-  <b>Last latitude:</b>
-  <%= @performer.last_latitude %>
+<b>Last latitude:</b>
+<%= @performer.last_latitude %>
 </p>
 
 <p>
-  <b>Last longitude:</b>
-  <%= @performer.last_longitude %>
+<b>Last longitude:</b>
+<%= @performer.last_longitude %>
 </p>
 
 <p>
-  <b>Money ytd:</b>
-  <%= @performer.money_ytd %>
+<b>Money ytd:</b>
+<%= @performer.money_ytd %>
 </p>
 
 <p>
-  <b>Street name:</b>
-  <%= @performer.street_name %>
+<b>Street name:</b>
+<%= @performer.street_name %>
 </p>
 
 <p>
-  <b>Picture url:</b>
-  <%= @performer.picture_url %>
+<b>Picture url:</b>
+<%= @performer.picture_url %>
 </p>
 
 
 <%= link_to 'Pay $1', "https://venmo.com/#{@performer.venmo_id}?txn=Pay&amount=1&note=for%20a%20great%20street%20performance" %> |
 <%= link_to 'Edit', edit_performer_path(@performer) %> |
 <%= link_to 'Back', performers_path %>
->>>>>>> 09986c82cb0e17d77aaff5cb2392703619d702ee

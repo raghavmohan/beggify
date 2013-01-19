@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 <%= form_tag performers_path, :method => :get do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near", :name => nil %>
-  </p>
-=======
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search Near", :name => nil %>
+</p>
 <h1>Listing performers</h1>
 
 <table>
@@ -23,8 +21,8 @@
     <th></th>
   </tr>
 
-<% @performers.each do |performer| %>
-  <tr>
+  <% @performers.each do |performer| %>
+    <tr>
     <td><%= performer.venmo_id %></td>
     <td><%= performer.name %></td>
     <td><%= performer.first_name %></td>
@@ -38,5 +36,4 @@
     <td><%= link_to 'Edit', edit_performer_path(performer) %></td>
     <td><%= link_to 'Destroy', performer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
->>>>>>> 09986c82cb0e17d77aaff5cb2392703619d702ee
 <% end %>

@@ -3480,3 +3480,25 @@ Served asset /performances.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-18 22:30:39 -0600
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/performers/1" for 127.0.0.1 at 2013-01-18 22:32:32 -0600
+
+SyntaxError (/Users/raghav/Dev/playtime/pennApps/app/models/performer.rb:2: syntax error, unexpected tLSHFT
+<<<<<<< HEAD
+  ^
+/Users/raghav/Dev/playtime/pennApps/app/models/performer.rb:4: syntax error, unexpected tEQQ, expecting keyword_end
+=======
+   ^
+/Users/raghav/Dev/playtime/pennApps/app/models/performer.rb:6: syntax error, unexpected tRSHFT, expecting keyword_end
+>>>>>>> 09986c82cb0e17d77aaff5cb2392703619d702ee
+  ^
+/Users/raghav/Dev/playtime/pennApps/app/models/performer.rb:6: Invalid octal digit
+>>>>>>> 09986c82cb0e17d77aaff5cb2392703619d702ee
+          ^):
+  app/controllers/performers_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/raghav/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/raghav/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/raghav/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
