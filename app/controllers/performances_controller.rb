@@ -15,6 +15,9 @@ class PerformancesController < ApplicationController
   def show
     @performance = Performance.find(params[:id])
 
+		current_performer.current_performance = params[:id]
+		current_performer.save
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @performance }
@@ -41,7 +44,7 @@ class PerformancesController < ApplicationController
   # POST /performances.json
   def create
     @performance = Performance.new(params[:performance])
-
+		@performance.performer = current_performer
     respond_to do |format|
       if @performance.save
         format.html { redirect_to @performance, notice: 'Performance was successfully created.' }

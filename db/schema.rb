@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119070556) do
+ActiveRecord::Schema.define(:version => 20130119201440) do
 
   create_table "payments", :force => true do |t|
     t.float    "amount"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(:version => 20130119070556) do
 
   create_table "performances", :force => true do |t|
     t.string   "name"
-    t.decimal  "performed_latitude"
-    t.decimal  "performed_longitude"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "performed_at"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "performer_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string   "address"
   end
 
   create_table "performers", :force => true do |t|
@@ -35,16 +35,14 @@ ActiveRecord::Schema.define(:version => 20130119070556) do
     t.decimal  "money_ytd"
     t.string   "street_name"
     t.string   "picture_url"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.float    "latitude"
-    t.float    "longitude"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.string   "address"
     t.string   "venmo_id"
     t.string   "provider"
+    t.integer  "current_performance"
   end
 
 end
