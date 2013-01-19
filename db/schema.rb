@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130119032958) do
+=======
+ActiveRecord::Schema.define(:version => 20130119031459) do
+>>>>>>> 22e95abda3fbee61ea18b51e84ed5408384b6b4d
 
   create_table "performances", :force => true do |t|
     t.string   "name"
@@ -30,12 +34,20 @@ ActiveRecord::Schema.define(:version => 20130119032958) do
     t.decimal  "money_ytd"
     t.string   "street_name"
     t.string   "picture_url"
+<<<<<<< HEAD
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
     t.string   "venmo_id"
+=======
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+>>>>>>> 22e95abda3fbee61ea18b51e84ed5408384b6b4d
   end
 
 end
