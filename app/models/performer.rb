@@ -3,10 +3,7 @@ class Performer < ActiveRecord::Base
 
   has_many :performances
 
-  validates :street, :presence => true
-  validates :latitude, :presence => true
-  validates :longitude, :presence => true
-
+  validates :street_name, :presence => true
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
