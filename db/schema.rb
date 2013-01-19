@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(:version => 20130119050024) do
     t.datetime "updated_at",       :null => false
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "address"
-    t.string   "venmo_id"
     t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "address"
+    t.string   "venmo_id"
   end
 
 end
