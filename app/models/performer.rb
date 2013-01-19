@@ -1,6 +1,7 @@
 class Performer < ActiveRecord::Base
   attr_accessible :venmo_id, :first_name,:last_name, :money_ytd, :name, :picture_url, :street_name, :longitude, :latitude, :name
-  has_many :Performance
+
+  has_many :performances
 
   validates :street, :presence => true
   validates :latitude, :presence => true
