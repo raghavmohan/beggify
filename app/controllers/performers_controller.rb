@@ -4,9 +4,9 @@ class PerformersController < ApplicationController
 
 	def nearby
 		@p = nil
-		if params[:longitude] != nil and params[:latitude] != nil
-			@p = Performer.near([params[:longitude], params[:latitude]], 20, :order => :distance)
-		end		
+		#if params[:longitude] != nil and params[:latitude] != nil
+		#	@p = Performer.current_performance.near([params[:longitude], params[:latitude]], 20, :order => :distance)
+		#end		
 	render json: @p
 	end
 
