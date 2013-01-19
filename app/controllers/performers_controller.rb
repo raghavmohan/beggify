@@ -6,6 +6,8 @@ class PerformersController < ApplicationController
     @performers = Performer.all
   end
 
+  # GET /performers/1
+  # GET /performers/1.json
   def show
     @performer = Performer.find(params[:id])
 
