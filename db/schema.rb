@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119060639) do
+ActiveRecord::Schema.define(:version => 20130119070556) do
 
   create_table "payments", :force => true do |t|
     t.float    "amount"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130119060639) do
     t.datetime "oauth_expires_at"
     t.string   "address"
     t.string   "venmo_id"
+    t.string   "provider"
   end
 
 end
