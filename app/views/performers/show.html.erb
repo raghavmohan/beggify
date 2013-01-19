@@ -1,45 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @performer.name %>
-</p>
-
-<p>
-  <b>First name:</b>
-  <%= @performer.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @performer.last_name %>
-</p>
-
-<p>
-  <b>Last latitude:</b>
-  <%= @performer.last_latitude %>
-</p>
-
-<p>
-  <b>Last longitude:</b>
-  <%= @performer.last_longitude %>
-</p>
-
-<p>
-  <b>Money ytd:</b>
-  <%= @performer.money_ytd %>
-</p>
-
-<p>
-  <b>Street name:</b>
-  <%= @performer.street_name %>
-</p>
-
-<p>
-  <b>Picture url:</b>
-  <%= @performer.picture_url %>
-</p>
-
-
-<%= link_to 'Edit', edit_performer_path(@performer) %> |
-<%= link_to 'Back', performers_path %>
+<iframe width="80%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=<%= @performer.latitude %>,<%= @performer.longitude %>&amp;aq=0&amp;oq=little&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+<h3>Nearby locations</h3>
+<ul>
+  <% for location in @performer.nearbys(@distance) %>
+    <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
+</ul>

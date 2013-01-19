@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119025914) do
+ActiveRecord::Schema.define(:version => 20130119032958) do
 
   create_table "performances", :force => true do |t|
     t.string   "name"
@@ -27,15 +27,14 @@ ActiveRecord::Schema.define(:version => 20130119025914) do
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"
-    t.decimal  "last_latitude"
-    t.string   "last_longitude"
     t.decimal  "money_ytd"
     t.string   "street_name"
     t.string   "picture_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "address"
   end
 
 end
