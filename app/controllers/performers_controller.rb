@@ -3,29 +3,10 @@ class PerformersController < ApplicationController
   # GET /performers.json
 
   def index
-    if params[:search].present?
-      @performers = Performer.near(params[:search], 50, :order => :distance)
-    else
-      @performers = Performer.all
-    end
-  end
-
-=begin
-  def index
     @performers = Performer.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @performers }
-    end
   end
 
-=end
-
-  # GET /performers/1
-  # GET /performers/1.json
   def show
-    @distance = 0
     @performer = Performer.find(params[:id])
 
     respond_to do |format|

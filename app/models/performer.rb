@@ -3,9 +3,22 @@ class Performer < ActiveRecord::Base
 
   has_many :performances
 
-  validates :street, :presence => true
-  validates :latitude, :presence => true
-  validates :longitude, :presence => true
+  #before_save :check_lat_long
+
+
+  private
+  def check_lat_long
+      if @performer.latitude.nil?
+        @performer.latitude = 0.0
+      end
+      if @performer.longitude.nil?
+        @performer.longitude = 0.0
+      end
+  end  
+
+  #validates :street_name, :presence => true
+  #validates :latitude, :presence => true
+  #validates :longitude, :presence => true
 
 
   geocoded_by :address
@@ -13,7 +26,6 @@ class Performer < ActiveRecord::Base
 
 	def self.from_omniauth(auth)
   		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |performer|
-    		#user.provider = auth.provider
     		performer.uid = performer.uid
     		performer.name = auth.info.name
     		performer.oauth_token = auth.credentials.token

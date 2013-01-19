@@ -8,6 +8,7 @@ Beggify::Application.routes.draw do
 	match 'auth/failure', to: redirect('/')
 	match 'signout', to: 'sessions#destroy', as: 'signout'
 	match 'home/performer', to: 'home#performer', as: 'performer_home'
+	match 'home/nearest_performers/:id', to: 'home#nearest_performers', as: 'nearest_performers'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
