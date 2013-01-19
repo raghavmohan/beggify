@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130119032958) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.string   "venmo_id"
   end
 
 end
