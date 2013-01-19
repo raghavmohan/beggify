@@ -2,27 +2,18 @@ class PerformersController < ApplicationController
 
   # GET /performers
   # GET /performers.json
+
+
+  def nearby
+    @p = nil
+    if params[:longitude] != nil and params[:latitude] != nil
+      @p = Performer.near([params[:longitude], params[:latitude]], 20, :order => :distance)
+    end		
+    render json: @p
+  end
+
   def index
-    #default pull 10 miles, can change this later
-    @distance = 10
-    @lat = 0.0
-    @long = 0.0
-    unless params[:lat].nil?
-      @lat = params[:lat]
-    end
-    unless params[:long].nil?
-      @long = params[:long]
-    end
-    unless params[:distance].nil?
-      @distance = params[:distance]
-    end
-    @performers = Performer.near( [@lat, @long], @distance)
-
-    respond_to do |format|
-      format.html #index.html.erb
-      format.json{ render json: @performers }
-    end
-
+    @performers = Performer.all
   end
 
   # GET /performers/1

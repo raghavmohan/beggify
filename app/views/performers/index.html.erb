@@ -29,3 +29,28 @@ Within : <%= @distance %> miles
 </table>
 <%= link_to 'New', new_performer_path %>
 <%= link_to "Performer Home", performer_home_path, id: "performer_home" %>
+
+
+<script>
+function getLocation()
+{
+  if (navigator.geolocation)
+    {
+      navigator.geolocation.getCurrentPosition(getPerformers);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+}
+getLocation();
+
+function getPerformers(position)
+{
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	
+	$.get("nearby", { latitude: latitude, longitude: longitude },
+  	function(data){
+  		console.log(data);
+  	}
+	);  
+}
+</script>
