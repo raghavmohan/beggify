@@ -9,6 +9,8 @@ Beggify::Application.routes.draw do
 	match 'signout', to: 'sessions#destroy', as: 'signout'
 	match 'home/performer', to: 'home#performer', as: 'performer_home'
 
+	match 'nearby', to: 'performers#nearby'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

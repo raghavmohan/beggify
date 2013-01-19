@@ -15,20 +15,3 @@
 //= require_tree .
 
 
-var x=document.getElementById("demo");
-function getLocation()
-{
-  if (navigator.geolocation)
-    {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-}
-
-window.onLoad = (function() {getLocation();});
-
-function showPosition(position)
-{
-  alert("Latitude: ");	
-}
-

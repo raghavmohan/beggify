@@ -20,12 +20,12 @@
     <%= f.datetime_select :performed_at %>
   </div>
   <div class="field">
-    <%= f.label :performed_latitude %><br />
-    <%= f.text_field :performed_latitude %>
+    <% f.label :performed_latitude %><!--<br />-->
+    <%= f.hidden_field :performed_latitude %>
   </div>
   <div class="field">
-    <%= f.label :performed_longitude %><br />
-    <%= f.text_field :performed_longitude %>
+    <% f.label :performed_longitude %><!--<br />-->
+    <%= f.hidden_field :performed_longitude %>
   </div>
   <div class="actions">
     <%= f.submit %>
