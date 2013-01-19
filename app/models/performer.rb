@@ -1,5 +1,5 @@
 class Performer < ActiveRecord::Base
-  attr_accessible :venmo_id, :first_name,:last_name, :money_ytd, :name, :picture_url, :street_name, :name
+  attr_accessible :name, :venmo_id, :money_ytd, :name, :picture_url, :street_name, :name, :provider, :uid, :current_performance
 
   has_many :performances
 
