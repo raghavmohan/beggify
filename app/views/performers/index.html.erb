@@ -1,4 +1,7 @@
 <h1>Listing performers</h1>
+<p> Listing Near: <%= @lat %>, <%= @long %> <br/>
+Within : <%= @distance %> miles 
+</p>
 
 <table>
   <tr>
@@ -11,7 +14,6 @@
     <th></th>
     <th></th>
   </tr>
-
   <% @performers.each do |performer| %>
     <tr>
       <td><%= performer.venmo_id %></td>
@@ -26,5 +28,4 @@
   <% end %>
 </table>
 <%= link_to 'New', new_performer_path %>
-
 <%= link_to "Performer Home", performer_home_path, id: "performer_home" %>

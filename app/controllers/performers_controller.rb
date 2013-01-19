@@ -1,9 +1,28 @@
 class PerformersController < ApplicationController
+
   # GET /performers
   # GET /performers.json
-
   def index
-    @performers = Performer.all
+    #default pull 10 miles, can change this later
+    @distance = 10
+    @lat = 0.0
+    @long = 0.0
+    unless params[:lat].nil?
+      @lat = params[:lat]
+    end
+    unless params[:long].nil?
+      @long = params[:long]
+    end
+    unless params[:distance].nil?
+      @distance = params[:distance]
+    end
+    @performers = Performer.near( [@lat, @long], @distance)
+
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json{ render json: @performers }
+    end
+
   end
 
   # GET /performers/1

@@ -29,12 +29,13 @@ function getPerformers(position)
 {
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
-	
-	$.get("nearby", { latitude: latitude, longitude: longitude },
+
+//window.location.replace("performers/?lat="+latitude+"&long="+longitude);	
+$.get("performers/", { lat: latitude, long: longitude },
   	function(data){
   		console.log(data);
   	}
-	);  
+	);
 	
 }
 
