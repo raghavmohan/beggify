@@ -1,4 +1,5 @@
 class PerformersController < ApplicationController
+
   # GET /performers
   # GET /performers.json
 

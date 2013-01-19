@@ -4,5 +4,4 @@ class HomeController < ApplicationController
 
 	def performer
 	end
-
 end
