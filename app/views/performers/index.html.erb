@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Venmo</th>
     <th>Name</th>
     <th>First name</th>
     <th>Last name</th>
@@ -17,6 +18,7 @@
 
 <% @performers.each do |performer| %>
   <tr>
+    <td><%= performer.venmo_id %></td>
     <td><%= performer.name %></td>
     <td><%= performer.first_name %></td>
     <td><%= performer.last_name %></td>

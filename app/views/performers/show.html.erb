@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Venmo:</b>
+  <%= @performer.venmo_id %>
+</p>
+
+<p>
   <b>Name:</b>
   <%= @performer.name %>
 </p>
@@ -41,5 +46,6 @@
 </p>
 
 
+<%= link_to 'Pay $1', "https://venmo.com/#{@performer.venmo_id}?txn=Pay&amount=1&note=for%20a%20great%20street%20performance" %> |
 <%= link_to 'Edit', edit_performer_path(@performer) %> |
 <%= link_to 'Back', performers_path %>
