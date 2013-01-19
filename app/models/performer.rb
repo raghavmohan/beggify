@@ -2,6 +2,11 @@ class Performer < ActiveRecord::Base
   attr_accessible :venmo_id, :first_name,:last_name, :money_ytd, :name, :picture_url, :street_name, :longitude, :latitude, :name
   has_many :Performance
 
+  validates :street, :presence => true
+  validates :latitude, :presence => true
+  validates :longitude, :presence => true
+
+
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
