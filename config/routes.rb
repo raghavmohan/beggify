@@ -1,11 +1,8 @@
 Beggify::Application.routes.draw do
-	root :to => "home#index"  
+  root to: 'performers#index'
 
-	resources :performances
-
+  resources :performances
   resources :performers
-
-	
 
 	match 'auth/:provider/callback', to: 'sessions#create'
 	match 'auth/failure', to: redirect('/')
