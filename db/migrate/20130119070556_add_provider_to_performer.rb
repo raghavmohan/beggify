@@ -4,6 +4,6 @@ class AddProviderToPerformer < ActiveRecord::Migration
 	end
 
 	def down
-		remove_column :performers, :provider, :string
+		remove_column :performers, :provider
 	end
 end

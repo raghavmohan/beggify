@@ -1,4 +1,7 @@
 <% if current_performer == nil %>
-	<%= link_to "Sign In", "/auth/facebook", id: "sign_in", rel: "external" %>
+	<a href="/auth/facebook" rel="external">
+		<img id="loginImage" src="/assets/facebook-login.png">
+	</a>
+
 <% end %>
 
