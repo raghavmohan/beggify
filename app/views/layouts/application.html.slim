@@ -15,8 +15,19 @@ html
         div.ui-panel-inner
           h3 Settings
       .page_header data-role="header"
-        img.left src=("/assets/logo.png")
+        =link_to performers_path, "data-role" => "none" do
+          img.left src=("/assets/logo.png")
         img#settings src=("/assets/settings.png") 
       .page_content data-role="content"
         .content_box
           =yield
+
+- unless @performer.nil?
+  javascript:
+    $(document).ready(function() {
+      var setBackground = function() {
+        $(".ui-panel-content-wrap").css("background-image", "#{@performer.fb_pic}");
+      };
+      setBackground();
+    });
+
