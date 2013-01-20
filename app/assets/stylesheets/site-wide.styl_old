@@ -1,0 +1,41 @@
+body
+  $trans-black = rgba(0,0,0,0.5)
+  $content-margin = 25px
+  background-image: url("bg.png")
+  background-size: 100%
+
+  margin: 0px
+  padding: 0px
+  height: 100%
+  width: 100%
+  a
+    text-decoration:none
+    color:white
+  .navbar
+    .navbar-inner
+      background: none
+      background-color: $trans-black
+      border: none
+      img.left
+        margin: 10px 0px
+        width: 120px
+        text-align: left
+        margin-left: $content-margin
+  .container.page-content
+    padding: 0px
+    position: absolute
+    top: 60px
+    bottom: 0px
+    right: 0px
+    left: 0px
+    color: white
+    text-shadow: none
+    .content_box
+      position: absolute
+      left: $content-margin
+      bottom: $content-margin
+      right: $content-margin
+      top: $content-margin
+      border-radius: 5px
+      background-color: $trans-black
+      padding: 10px
