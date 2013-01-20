@@ -6,7 +6,6 @@
   <tr>
     <th><%= sortable "What" %></th>
     <th><%= sortable "start_time", "When" %></th>
-    <th>Where</th>
     <th>More Info</th>
     <th>Edit</th>
   </tr>
@@ -14,7 +13,6 @@
     <tr>
     <td><%= performance.name %></td>
     <td><%= performance.start_time %></td>
-    <td><a href = "<%= Geocoder.search(""+performance.latitude+","+performance.longitude) %>"> <i class="icon-folder-open"></i></a></td>
     <td><a href = "<%= performer_performance_path(@performer, performance) %>"> <i class="icon-folder-open"></i></a></td>
     <td><a href = "<%= performer_performance_path(@performer, performance) %>"> <i class="icon-folder-open"></i></a></td>
     <td><a href = "<%= edit_performer_performance_path(@performer, performance) %>"> <i class="icon-edit"></i></a></td>
