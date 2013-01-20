@@ -31,6 +31,7 @@ group :assets do
   gem "coffee-script", "~> 2.2.0"
   gem 'stylus', '~> 0.6.2'
   gem 'slim', '~> 1.3.6'
+  gem 'font-awesome-sass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -42,6 +43,9 @@ gem 'jquery-rails'
 gem 'omniauth-facebook'
 
 gem "geocoder"
+
+ gem 'font-awesome-rails'
+
 
 gem "omniauth-facebook"
 # To use ActiveModel has_secure_password
