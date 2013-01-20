@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.mobile
+//= require jsapi
 //= require jquery.easing
 //= require_tree .
 

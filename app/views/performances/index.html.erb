@@ -1,20 +1,27 @@
 <h1><%= current_performer.name %>'s Performances</h1>
-
-<% @performances.each do |performance| %>
+<div id="chart_div"></div>
+<div id="scatter_div"></div>
+<div id="analytics-table"> 
+<table class="analytics">
   <tr>
+    <th><%= sortable "What" %></th>
+    <th><%= sortable "start_time", "When" %></th>
+    <th>More Info</th>
+    <th>Edit</th>
+  </tr>
+  <% @performances.each do |performance| %>
+    <tr>
     <td><%= performance.name %></td>
     <td><%= performance.start_time %></td>
-    <td><%= performance.end_time %></td>
-    <td><%= performance.latitude %></td>
-    <td><%= performance.longitude %></td>
-    <td><%= link_to 'Show', performer_performance_path(@performer, performance) %></td>
-    <td><%= link_to 'Edit', edit_performer_performance_path(@performer, performance) %></td>
-    <td><%= link_to 'Destroy', performer_performance_path(@performer, performance), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><a href = "<%= performer_performance_path(@performer, performance) %>"> <i class="icon-folder-open"></i></a></td>
+    <td><a href = "<%= edit_performer_performance_path(@performer, performance) %>"> <i class="icon-edit"></i></a></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Performance', new_performer_performance_path %>
-<%= link_to 'Sign Out', signout_path %>
+<a href = "<%= new_performer_performance_path %>"><i class="icon-plus"></i>New Performance</a>
+<br/>
+<a href = "<%= signout_path %>"><i class="icon-signout"></i>Sign Out</a>
+</div>
