@@ -10,7 +10,7 @@ Beggify::Application.routes.draw do
 	match 'auth/:provider/callback', to: 'sessions#create'
 	match 'auth/failure', to: redirect('/')
 	match 'signout', to: 'sessions#destroy', as: 'signout'
-	match 'home/performer', to: 'home#performer', as: 'performer_home'
+	match 'login', to: 'performers#login', as: 'performers_login'
 
 	match 'nearby', to: 'performers#nearby'
 

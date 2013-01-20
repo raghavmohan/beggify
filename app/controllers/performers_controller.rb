@@ -3,12 +3,18 @@ class PerformersController < ApplicationController
   # GET /performers
   # GET /performers.json
 
+	def login
+		if current_performer != nil
+			redirect_to :controller => 'performances', :action => 'index', :performer_id => current_performer.id
+		end	
+	end
+
 	def nearby
 		@p = nil
-		#if params[:longitude] != nil and params[:latitude] != nil
-		#	@p = Performer.current_performance.near([params[:longitude], params[:latitude]], 20, :order => :distance)
-		#end		
-	render json: @p
+		if params[:longitude] != nil and params[:latitude] != nil
+			@p = Performer.find(Performance.near([params[:latitude], params[:longitude]], 20).map{|p| p.performer_id})
+		end		
+		render json: @p
 	end
 
   def index

@@ -2,4 +2,23 @@
 
 <%= render 'form' %>
 
+<script>
+	function setPerformerLocation(position)
+	{
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    $("#performance_latitude").val(latitude);
+    $("#performance_longitude").val(longitude);		
+	}
+	
+	function requestLocation()
+	{
+		if (navigator.geolocation)
+		{
+			navigator.geolocation.getCurrentPosition(setPerformerLocation);
+		}
+	}
+	requestLocation();
+</script>
+
 <%= link_to 'Back', performer_performances_path(@performer) %>
