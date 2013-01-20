@@ -1,0 +1,40 @@
+<p>
+<b>Venmo:</b>
+<%= @performer.venmo_id %>
+</p>
+
+<p>
+<b>Name:</b>
+<%= @performer.name %>
+</p>
+
+<p>
+<b>Money ytd:</b>
+<%= @performer.money_ytd %>
+</p>
+
+<p>
+<b>Street name:</b>
+<%= @performer.street_name %>
+</p>
+
+<p>
+<b>Picture url:</b>
+<%= @performer.picture_url %>
+</p>
+
+<%= form_for [@performer, @payment] do |f| %>
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Performances', performer_performances_path(@performer) %> |
+<%= link_to 'Edit', edit_performer_path(@performer) %> |
+<%= link_to 'Back', performers_path %>
+
