@@ -26,6 +26,9 @@ class PerformersController < ApplicationController
   def show
     @performer = Performer.find(params[:id])
     @payment = Payment.new
+    @rating = rating(@performer)
+    @city = "Madison, WI"
+    @fb = "fb.me/#{@performer.venmo_id}"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -91,5 +94,17 @@ class PerformersController < ApplicationController
       format.html { redirect_to performers_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def rating(performer)
+    num_payments = 0
+    performer.performances.each do |perf|
+      perf.payments.each do |payment|
+        num_payments += 1
+      end
+    end
+    tmp = (1 > num_payments ? 1 : num_payments)
+    5 < tmp ? 5 : tmp
   end
 end
