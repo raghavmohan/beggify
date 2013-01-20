@@ -9,9 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require stylized_application
+ *= require sassy_application
+ *= require jquery-mobile
  */
-
-.page-header{
-  opacity:0.4;
-}

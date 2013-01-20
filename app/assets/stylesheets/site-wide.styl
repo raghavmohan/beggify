@@ -1,0 +1,44 @@
+body
+  $trans-black = rgba(0,0,0,0.5)
+  $content-margin = 15px
+  .page
+    background: none
+    height: 100%
+    .ui-panel-content-wrap
+      background: none
+      background-image: url("bg.png")
+      background-size: 100%
+      .page_header
+        height: 50px
+        background: none
+        background-color: $trans-black
+        border: none
+        img.left
+          margin: 10px 0px
+          width: 120px
+          text-align: left
+          margin-left: $content-margin
+        img#settings
+          cursor: pointer
+          position: absolute
+          top: 10px
+          right: $content-margin
+
+      .page_content
+        padding: 0px
+        position: absolute
+        top: 50px
+        bottom: 0px
+        right: 0px
+        left: 0px
+        color: white
+        text-shadow: none
+        .content_box
+          position: absolute
+          left: $content-margin
+          bottom: $content-margin
+          right: $content-margin
+          top: $content-margin
+          border-radius: 5px
+          background-color: $trans-black
+          padding: 10px
