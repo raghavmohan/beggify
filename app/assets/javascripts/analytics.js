@@ -126,7 +126,47 @@ function drawScatter(){
           }
          );
   }
-}
+};
+
+function drawTbl(){
+  // Load the Visualization API and the piechart package.
+  google.load('visualization', '1.0', {'packages':['corechart']});
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.setOnLoadCallback(drawVisual);
+  function getData() {
+    $.get(window.location.pathname+".json",
+          function(data){
+            var returnArr=[];
+            $.each(data, function (){
+              var f = this;
+              $.get("/performance_amount/"+ this.id+".json", function (amount){
+                returnArr.push([f.name, amount]);
+              });
+            });
+            return returnArr;
+          }
+         );
+  };
+  // Callback that creates and populates a data table, 
+  // instantiates the pie chart, passes in the data and
+  // draws it.
+  function drawVisual() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Salary');
+        data.addColumn('boolean', 'Full Time Employee');
+        data.addRows([
+          ['Mike',  {v: 10000, f: '$10,000'}, true],
+          ['Jim',   {v:8000,   f: '$8,000'},  false],
+          ['Alice', {v: 12500, f: '$12,500'}, true],
+          ['Bob',   {v: 7000,  f: '$7,000'},  true]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true});
+  }
+ };
 
 drawScatter();
 drawPieChart();
+drawTbl();

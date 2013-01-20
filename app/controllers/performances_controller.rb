@@ -1,9 +1,12 @@
 class PerformancesController < ApplicationController
 	# GET /performances
   # GET /performances.json
+
+  helper_method :sort_column, :sort_direction
+
   def index
     @performer = Performer.find(params[:performer_id])
-    @performances = @performer.performances
+    @performances = @performer.performances.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -108,5 +111,14 @@ class PerformancesController < ApplicationController
       format.html { redirect_to performer_performances_url }
       format.json { head :no_content }
     end
+  end
+  private
+  
+  def sort_column
+    Performance.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
