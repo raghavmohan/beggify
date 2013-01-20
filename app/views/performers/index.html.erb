@@ -1,31 +1,10 @@
-<h1>Listing performers</h1>
-<p> Listing Near: <%= @lat %>, <%= @long %> <br/>
-Within : <%= @distance %> miles 
-</p>
+<h1 class="title">Performers Near You</h1>
 
-<table>
-  <tr>
-    <th>Venmo</th>
-    <th>Name</th>
-    <th>Money ytd</th>
-    <th>Street name</th>
-    <th>Picture url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @performers.each do |performer| %>
-    <tr>
-      <td><%= performer.venmo_id %></td>
-      <td><%= performer.name %></td>
-      <td><%= performer.money_ytd %></td>
-      <td><%= performer.street_name %></td>
-      <td><%= performer.picture_url %></td>
-      <td><%= link_to 'Show', performer %></td>
-      <td><%= link_to 'Edit', edit_performer_path(performer) %></td>
-      <td><%= link_to 'Destroy', performer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to "Performers", performers_login_path %>
+<div id="performersCon">
+
+</div>
+
+<div id="loginCon">	
+	<%= link_to "Performer", {:controller => "performers", :action => "login"}, :id => "performerLogin" %>
+</div>
 

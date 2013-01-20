@@ -1,0 +1,35 @@
+.performer
+  .top
+    .street_name
+      =@performer.street_name
+    .rating
+      - @rating.times do
+        i.icon-star.icon-large
+  .middle
+    table
+      tr
+        td.first
+          i.icon-user.icon-large
+        td
+          =@performer.name
+      tr
+        td.first
+          i.icon-map-marker.icon-large
+        td
+          =@city
+      tr
+        td.first
+          i.icon-facebook.icon-large
+        td
+          =@fb
+  .bottom
+    .venmo
+      =form_for [@performer, @payment], html: {"data-ajax" => false} do |f|
+        .field
+          =f.hidden_field :amount, value: "1"
+        .actions
+          =f.submit ""
+
+/=link_to 'Performances', performer_performances_path(@performer) 
+/=link_to 'Edit', edit_performer_path(@performer)
+/=link_to 'Back', performers_path

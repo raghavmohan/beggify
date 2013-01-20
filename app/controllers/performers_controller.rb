@@ -11,10 +11,15 @@ class PerformersController < ApplicationController
 
 	def nearby
 		@p = nil
+		@d = []
 		if params[:longitude] != nil and params[:latitude] != nil
 			@p = Performer.find(Performance.near([params[:latitude], params[:longitude]], 20).map{|p| p.performer_id})
+			
+			@p.each do |f|
+				@d.push(Performance.find(f.current_performance).distance_from([params[:latitude], params[:longitude]]).round(0))
+			end	
 		end		
-		render json: @p
+		render :json => {:performers => @p, :distances => @d}
 	end
 
   def index
@@ -26,6 +31,9 @@ class PerformersController < ApplicationController
   def show
     @performer = Performer.find(params[:id])
     @payment = Payment.new
+    @rating = rating(@performer)
+    @city = "Madison, WI"
+    @fb = "fb.me/#{@performer.venmo_id}"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -91,5 +99,17 @@ class PerformersController < ApplicationController
       format.html { redirect_to performers_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def rating(performer)
+    num_payments = 0
+    performer.performances.each do |perf|
+      perf.payments.each do |payment|
+        num_payments += 1
+      end
+    end
+    tmp = (1 > num_payments ? 1 : num_payments)
+    5 < tmp ? 5 : tmp
   end
 end

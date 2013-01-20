@@ -14,4 +14,12 @@ module ApplicationHelper
     options.each { |opt| class_to_add += " #{opt}" } if !options.empty?
     link_to(url, html_options = { :class => class_to_add }) {icon(name, size) + " " + text}
   end
+
+	def controller_stylesheet_link_tag
+  	stylesheet = "#{params[:controller]}"
+    
+    if File.exists?("#{Rails.root}/app/assets/stylesheets/#{stylesheet}.css.scss")
+      stylesheet_link_tag stylesheet
+    end  
+	end
 end

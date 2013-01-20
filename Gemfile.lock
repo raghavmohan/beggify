@@ -164,6 +164,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+<<<<<<< HEAD
     sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
@@ -175,6 +176,8 @@ GEM
       rack-test
       sinatra (~> 1.3.0)
       tilt (~> 1.3)
+=======
+>>>>>>> 7e52586ffd2c8a52f4f91a871d9527cf1026e786
     slim (1.3.6)
       temple (~> 0.5.5)
       tilt (~> 1.3.3)
