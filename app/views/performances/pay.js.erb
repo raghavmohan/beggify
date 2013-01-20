@@ -1,7 +1,21 @@
 <% unless @payments.empty? %>
+  var delay = 0;
   <% @payments.each do |payment| %>
+    delay += 1000;
+    <% 4.times do |i| %>
+      var divID = "quarter-<%= payment.id.to_s %>-<%= i.to_s %>";
+      $("div.tip_page").append("<div class='quarter' id='" + divID + "'></div>")
+      $("div#" + divID).css({'top' : '<%= -200 + Random.rand(30) %>px', 'left' : '<%= 180 + (2 - i) * 20 + Random.rand(10) %>px'});
+      $("div#" + divID).delay(delay - 1000).animate({
+        top: '210px'
+      }, <%= 1500 + 50 * Random.rand(10) %>, "easeInQuart", function() {
+        $(this).remove()
+        var total = parseFloat($("#tip_total").attr('data-total')) + <%= payment.amount / 4 %>;
+        $("#tip_total").text("$" + total.toFixed(2))
+        $("#tip_total").attr('data-total', total);
+      });
+    <% end %>
+
     $("#tip_total").attr('data-time','<%= payment.created_at.to_i %>')
-    $("#tip_total").text(parseInt($("#tip_total").text()) + <%= payment.amount %>)
-    console.log("<%= payment.created_at %>, <%= payment.amount %>")
   <% end %>
 <% end %>

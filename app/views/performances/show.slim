@@ -1,0 +1,35 @@
+- total = 0
+- @performance.payments.each do |payment|
+  - total += payment.amount
+
+#performer data-id="#{@performer.id}"
+#performance data-id="#{@performance.id}"
+
+javascript:
+  var updateTips = function() {
+    performer_id = $("#performer").attr("data-id");
+    performance_id = $("#performance").attr("data-id");
+    after = $("#tip_total").attr("data-time");
+    $.getScript("/performers/" + performer_id + "/performances/pay.js?performance_id=" + performance_id + "&after=" + after);
+    setTimeout(updateTips, 1000);
+  };
+  if ($("#tip_total").length > 0)
+    setTimeout(updateTips, 1000);
+
+.tip_page
+  .top
+    span.header
+      =@performer.street_name
+      |'s
+    br
+    span.tips Tips
+  .middle
+    img src="/assets/cup.png"
+  .bottom
+    - if @performance.payments.empty?
+      - time = 0
+    - else 
+      - time = @performance.payments.last.created_at.to_i + 1
+    span#tip_total data-total="#{total}" data-time="#{time}"
+      = "$" + ("%.2f" % total)
+
