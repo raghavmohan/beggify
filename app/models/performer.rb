@@ -17,4 +17,9 @@ class Performer < ActiveRecord::Base
     		performer.save!
   		end
 	end
+
+  def fb_pic
+    self.uid ||= "justin.starry"
+    "url('http://graph.facebook.com/" + self.uid + "/picture?width=800')"
+  end
 end
