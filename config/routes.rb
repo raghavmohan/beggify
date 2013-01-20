@@ -13,6 +13,7 @@ Beggify::Application.routes.draw do
 	match 'login', to: 'performers#login', as: 'performers_login'
 
 	match 'nearby', to: 'performers#nearby'
+	match 'performance_amount/:id', to: 'performances#performance_amount'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

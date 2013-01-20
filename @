@@ -48,12 +48,10 @@ function drawPieChart(){
 
             var options = {
               title: 'Earnings by Name',
-              titleTextStyle: {color:"white"},
               width:300,
               height:400,
               backgroundColor:"transparent",
-              legend: {position: "top", textStyle: {color: 'white'}},
-            };
+              legend: {textStyle: {color: 'white'}}};
 
               var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
               chart.draw(chartData, options);
@@ -113,14 +111,9 @@ function drawScatter(){
 
             var options = {
               title: 'Earnings by Time',
-              titleTextStyle: {color:"white"},
               width:300,
               height:400,
-              backgroundColor:"transparent",
-              legend: {position: "top", textStyle: {color: 'white'}},
-              vAxis: {title: 'Money',  titleTextStyle: {color: 'white'}, textStyle: {color:'white'}},  
-              hAxis: {title: 'Time',  titleTextStyle: {color: 'white'}, textStyle: {color:'white'}}  
-              };
+              backgroundColor:"transparent"};
               var chart = new google.visualization.ScatterChart(document.getElementById('scatter_div'));
               chart.draw(chartData, options);
           }

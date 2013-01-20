@@ -16,6 +16,20 @@ class PerformancesController < ApplicationController
     @payments = Payment.where("performance_id = ? and created_at > ?", params[:performance_id], Time.at(params[:after].to_i + 1))
   end
 
+
+  # GET /performance_amount/1
+  # GET /performance_amount/1.json
+  def performance_amount
+    @payments = Payment.where("performance_id = ?", params[:id])
+    amounts=0
+    @payments.each do |payment|
+      amounts += payment.amount
+    end
+    respond_to do |format|
+      format.json { render json: amounts }
+    end
+  end
+
   # GET /performances/1
   # GET /performances/1.json
   def show
