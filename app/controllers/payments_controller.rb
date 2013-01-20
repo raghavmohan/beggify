@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   def new
     @performer = Performer.find(params[:performer_id])
-    @performance = @performer.performances.first
+    @performance = Performance.find(@performer.current_performance)
     @payment = @performance.payments.build
     
     respond_to do |format|
@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
 
   def create
     @performer = Performer.find(params[:performer_id])
-    @performance = @performer.performances.first
+    @performance = Performance.find(@performer.current_performance)
     @payment = @performance.payments.build(params[:payment])
 
     respond_to do |format|
