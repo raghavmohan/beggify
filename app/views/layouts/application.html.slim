@@ -7,18 +7,21 @@ html
       title Beggify
     =stylesheet_link_tag "application", media: "all"
     =stylesheet_link_tag "bootstrap", media: "all"
+    =stylesheet_link_tag "bootstrap-responsive", media: "all"
     =stylesheet_link_tag "performances", media: "all"
     =controller_stylesheet_link_tag
     =javascript_include_tag "application"
     =csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
   body
-    .page
-      .page_header
-        =link_to performers_path do
-          img.left src=("/assets/logo.png")
-      .page_content
-        .content_box
-          =yield
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          =link_to performers_path do
+            img.left src=("/assets/logo.png")
+    .container.page-content
+      .content_box
+        =yield
 
 - unless @performer.nil?
   javascript:
