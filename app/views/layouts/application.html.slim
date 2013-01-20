@@ -11,15 +11,11 @@ html
     =javascript_include_tag "application"
     =csrf_meta_tags
   body
-    .page data-role="page"
-      div.page_panel data-role="panel" id="settingsPanel" data-display="reveal" data-position="right"
-        div.ui-panel-inner
-          h3 Settings
-      .page_header data-role="header"
-        =link_to performers_path, "data-role" => "none" do
+    .page
+      .page_header
+        =link_to performers_path do
           img.left src=("/assets/logo.png")
-        img#settings src=("/assets/settings.png") 
-      .page_content data-role="content"
+      .page_content
         .content_box
           =yield
 
@@ -27,7 +23,7 @@ html
   javascript:
     $(document).ready(function() {
       var setBackground = function() {
-        $(".ui-panel-content-wrap").css("background-image", "#{@performer.fb_pic}");
+        $(".page").css("background-image", "#{@performer.fb_pic}");
       };
       setBackground();
     });
