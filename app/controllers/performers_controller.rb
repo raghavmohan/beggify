@@ -11,10 +11,15 @@ class PerformersController < ApplicationController
 
 	def nearby
 		@p = nil
+		@d = []
 		if params[:longitude] != nil and params[:latitude] != nil
 			@p = Performer.find(Performance.near([params[:latitude], params[:longitude]], 20).map{|p| p.performer_id})
+			
+			@p.each do |f|
+				@d.push(Performance.find(f.current_performance).distance_from([params[:latitude], params[:longitude]]).round(0))
+			end	
 		end		
-		render json: @p
+		render :json => {:performers => @p, :distances => @d}
 	end
 
   def index
