@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    - if yield(:title).present?
+      =yield(:title)
+    - else
+      title Beggify
+    =stylesheet_link_tag "application", media: "all"
+    =javascript_include_tag "application"
+    =csrf_meta_tags
+  body
+    .page data-role="page"
+      div.page_panel data-role="panel" id="settingsPanel" data-display="reveal" data-position="right"
+        div.ui-panel-inner
+          h3 Settings
+      .page_header data-role="header"
+        img.left src=("assets/logo.png")
+        img#settings src=("assets/settings.png") 
+      .page_content data-role="content"
+        .content_box
+          =yield

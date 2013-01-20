@@ -5,7 +5,15 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+group :development do
+  gem 'guard'
+  gem 'rb-fsevent'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec', '>= 2.1.1'
+  gem 'guard-livereload'
+end
 
 group :development, :test do
   gem 'sqlite3'
