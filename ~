@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#scatter_div{float:right;width:30%;}
-#chart_div{float:left;width:30%;}
+#scatter_div{float:right;}
+#chart_div{float:left;}
 
-.analytics th {text-align:left;color:rgb(241, 134, 134);padding:5px;}
-.analytics td {text-align:left;padding:5px;}
+.analytics th {text-align:left;padding:5px;width:100px;color:rgb(241, 134, 134);}
+.analytics td {text-align:left;padding:5px;width:100px;}
 
-#analytics-table {padding:10px;width:-1%;padding:5px;}
+#analytics-table {padding:10px;margin:30px;}
 #analytics-table a{color:rgb(241, 134, 134);}
 #analytics-table a:hover{color:rgb(150, 233, 167);}
