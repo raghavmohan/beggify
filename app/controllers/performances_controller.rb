@@ -48,17 +48,18 @@ class PerformancesController < ApplicationController
   # POST /performances
   # POST /performances.json
   def create
-    @performer = Performer.find(params[:performer_id])
-    @performance = @performer.performances.build(params[:performance])
-
-    if current_performer
-      current_performer.current_performance = @performance
-      current_performer.save
-    end
+    #@performer = Performer.find(params[:performer_id])
+    @performer = current_performer
+		@performance = @performer.performances.build(params[:performance])
 
     respond_to do |format|
       if @performance.save
-        format.html { redirect_to performer_performances_path, notice: 'Performance was successfully created.' }
+				if current_performer
+					current_performer.current_performance = @performance.id
+					current_performer.save
+				end
+
+				format.html { redirect_to performer_performances_path, notice: 'Performance was successfully created.' }
         format.json { render json: @performance, status: :created, location: @performance }
       else
         format.html { render action: "new" }
